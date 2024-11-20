@@ -14,6 +14,7 @@ use Oyta\Common\BlockChain\Tron\TronTransfer;
 use Oyta\Common\Share\GoogleAuthenticator;
 use Oyta\Common\Share\Bround;
 use Oyta\Common\Share\Email;
+use Oyta\Common\Share\InviteCode;
 use Oyta\Common\Share\Pass;
 use Oyta\Common\Share\Rate;
 use Oyta\Common\Stock\SinaStock;
@@ -310,6 +311,19 @@ class Common
         return Email::sendEmail($host, $user, $pass, $ssl, $port, $email, $name, $to, $title, $content);
     }
 
+    /**
+     * 设置邀请码 可支持十位数用户ID 最高9876543210
+     * @param $data //用户ID 可直接生成7位数邀请码
+     */
+    protected function setInvite($data){
+        return InviteCode::idToString($data);
+    }
 
-
+    /**
+     * 获取邀请码中的用户ID
+     * @param $data //邀请码  可直接获取到用户ID
+     */
+    protected function getInvite($data){
+        return InviteCode::stringToId($data);
+    }
 }

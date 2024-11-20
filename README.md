@@ -20,6 +20,7 @@ Oyta PHP Common
 * 生成TRON地址、查询交易记录和转账
 * 新浪股票数据
 * 邮件发送
+* 邀请码生成
 
 ## 安装
 ~~~
@@ -191,6 +192,24 @@ $to //收件人邮箱地址
 $title //邮件的主题
 $content //邮件的内容
 $this->SendEmail($host, $user, $pass, $ssl, $port, $email, $name, $to, $title, $content);
+
+~~~
+
+#### 邀请码生成  免数据库查询 直接通过邀请码获得用户ID
+~~~
+
+//最高支持数(9876543210) 最低支持数(1)
+$uid = 9876543210;
+
+//设置用户ID 生成邀请码  生成的邀请码固定7位数
+$code = $this->setInvite($uid);
+//$code = 9RFYGHZ
+
+$invite = '9RFYGHZ';
+//通过邀请码 获取用户ID
+$user_id = $this->getInvite($invite);
+//$user_id = 9876543210
+
 ~~~
 
 ## 命名规范
