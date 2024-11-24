@@ -18,6 +18,7 @@ use Oyta\Common\Share\InviteCode;
 use Oyta\Common\Share\Pass;
 use Oyta\Common\Share\Rate;
 use Oyta\Common\Stock\SinaStock;
+use Oyta\Common\BlockChain\Elliptics;
 
 class Common
 {
@@ -325,5 +326,12 @@ class Common
      */
     protected function getInvite($data){
         return InviteCode::stringToId($data);
+    }
+
+    /**
+     * 生成一个secp256k1-ECDSA的私钥
+     */
+    protected function getEcdsa(){
+        return Elliptics::get_ecdsa();
     }
 }

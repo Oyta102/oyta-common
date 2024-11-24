@@ -8,11 +8,11 @@ class Elliptics
 {
     public static function get_ecdsa(){
         $ec = new EC('secp256k1');
-        // Generate keys
         $key = $ec->genKeyPair();
-        $pem = $ec->keyFromPublic($key->priv);
+        $priv = $ec->keyFromPrivate($key->priv);
+        $privateKey = $priv->getPrivate('hex');
         return [
-          'privateKey'=>$pem->getPrivate('hex')
+            'privateKey'=>$privateKey
         ];
     }
 }

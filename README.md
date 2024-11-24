@@ -212,6 +212,11 @@ $user_id = $this->getInvite($invite);
 
 ~~~
 
+#### 生成一个secp256k1-ECDSA的私钥
+~~~
+$this->getEcdsa();
+~~~
+
 ## 命名规范
 
 `Oyta PHP Common`遵循PSR-2命名规范和PSR-4自动加载规范。
